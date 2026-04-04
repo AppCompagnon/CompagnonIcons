@@ -13,25 +13,24 @@ body {
   color: white;
 }
 
-/* Header simple */
+/* Header */
 .header {
-  padding: 20px 30px
-  color: black;
+  padding: 20px 30px;
 }
 
 .header h1 {
   margin: 0;
   font-size: 28px;
-  align-items: center;
-  color: black;
+  text-align: center;
 }
 
 .header p {
   margin-top: 5px;
   opacity: 0.6;
+  text-align: center;
 }
 
-/* Barre recherche */
+/* Recherche */
 .search {
   margin: 20px 30px;
 }
@@ -46,7 +45,7 @@ body {
   color: white;
 }
 
-/* Grid icônes */
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
@@ -54,7 +53,7 @@ body {
   padding: 20px 30px;
 }
 
-/* Carte icône */
+/* Card */
 .card {
   background: white;
   border-radius: 12px;
@@ -109,17 +108,60 @@ body {
 
 <div class="grid">
 
-  <div class="card" onclick="copy('add-square-fill')">
-    <img src="https://github.com/AppCompagnon/CompagnonIcons/blob/main/images/add_square_fill.png?raw=true">
-  </div>
+<!-- TES ICONES -->
 
-  <div class="card" onclick="copy('alert-fill')">
-    <img src="https://github.com/AppCompagnon/CompagnonIcons/blob/main/images/alert_fill.png?raw=true">
-  </div>
+<script>
+const icons = [
+"add_square_fill",
+"alert_fill",
+"alert_line",
+"align_left_line",
+"bling_fill",
+"calendar_2_fill",
+"cellphone_fill",
+"chart_pie_2_fill",
+"check_circle_fill",
+"check_circle_line",
+"checkbox_fill",
+"checkbox_line",
+"delete_2_fill",
+"edit_2_fill",
+"flash_line",
+"fullscreen_2_line",
+"grid_2_fill",
+"group_2_fill",
+"mail_fill",
+"palette_fill",
+"qrcode_fill",
+"rss_line",
+"safe_alert_fill",
+"safety_certificate_fill",
+"schedule_fill",
+"settings_2_fill",
+"sitemap_fill",
+"terminal_box_fill",
+"upload_3_fill",
+"user_2_fill",
+"user_info_fill",
+"user_lock_fill",
+"user_pin_fill",
+"user_question_fill"
+];
 
-  <div class="card" onclick="copy('alert-unfill')">
-    <img src="https://github.com/AppCompagnon/CompagnonIcons/blob/main/images/alert_line.png?raw=true">
-  </div>
+const grid = document.querySelector(".grid");
+
+icons.forEach(name => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.onclick = () => copy(name);
+
+  const img = document.createElement("img");
+  img.src = `https://raw.githubusercontent.com/AppCompagnon/CompagnonIcons/main/images/${name}.png`;
+
+  card.appendChild(img);
+  grid.appendChild(card);
+});
+</script>
 
 </div>
 
@@ -137,6 +179,9 @@ function copy(name) {
   }, 1000);
 }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
