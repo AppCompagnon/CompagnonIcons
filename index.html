@@ -1,35 +1,121 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Compagnon</title>
+<meta charset="UTF-8">
+<title>CompagnonIcons</title>
 
-  <!-- Icônes -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Titre */
+h1 {
+  font-size: 3em;
+  margin-bottom: 40px;
+  padding: 15px 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Grid */
+.grid {
+  display: flex;
+  gap: 30px;
+}
+
+/* Carrés */
+.card {
+  width: 140px;
+  height: 140px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+/* Images */
+.card img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  bottom: 20px;
+  background: rgba(0,0,0,0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.popup.show {
+  opacity: 1;
+}
+</style>
 
 </head>
+
 <body>
 
-  <h1>Compagnon</h1>
-  <p>Ton assistant scolaire intelligent</p>
+<h1>Compagnon</h1>
 
-  <hr>
+<div class="grid">
 
-  <h2><i class="fas fa-book"></i> Notes</h2>
-  <p>Consulte tes notes facilement</p>
+  <div class="card" onclick="copyText('images/note.png')">
+    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png">
+  </div>
 
-  <h2><i class="fas fa-chart-line"></i> Moyennes</h2>
-  <p>Visualise ta progression</p>
+  <div class="card" onclick="copyText('images/user.png')">
+    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+  </div>
 
-  <h2><i class="fas fa-user"></i> Compte</h2>
-  <p>Gère ton profil</p>
+  <div class="card" onclick="copyText('images/settings.png')">
+    <img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png">
+  </div>
 
-  <h2><i class="fas fa-gear"></i> Paramètres</h2>
-  <p>Personnalise ton expérience</p>
+</div>
 
-  <hr>
+<div id="popup" class="popup">Copié !</div>
 
-  <button onclick="alert('Bientôt disponible !')">Accéder</button>
+<script>
+function copyText(text) {
+  navigator.clipboard.writeText(text);
+
+  const popup = document.getElementById("popup");
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 1200);
+}
+</script>
 
 </body>
 </html>
